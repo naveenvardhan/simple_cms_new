@@ -1,0 +1,18 @@
+<!-- <h1>Subject detail</h1> -->
+<h2><%= @sub.name %></h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sub.pages.each do |page_name| %>
+    <tr>
+      <td><%= page_name.name %></td>
+      <td><%= page_name.id %></td>
+    </tr>
+  </tbody>
+  <% end %>
+  </table>

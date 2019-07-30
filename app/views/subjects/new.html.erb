@@ -1,0 +1,25 @@
+<h3>New Subject</h3>
+
+<%= form_for(@subject) do |f| %>
+  <% if @subject.errors.any? %>
+    <ul>
+      <% @subject.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div class="form-group">
+   <%= f.label :name %>
+   <%= f.text_field :name, class:"form-control" %>
+  </div>
+  <div class="form-group">
+   <%= f.label :position %>
+   <%= f.number_field :position, class: "form-control" %>
+  </div>
+  <div class="form-group form-check">
+   <%= f.check_box :visible, class: "form-check-input" %>
+   <%= f.label :visible, class: "form-check-label"  %>
+  </div>
+    <%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,33 @@
+<h3>New Page</h3>
+
+<%= form_for(@page) do |f| %>
+  <% if @page.errors.any? %>
+    <ul>
+      <% @page.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div class="form-group">
+   <%= f.label :name %>
+   <%= f.text_field :name, class:"form-control" %>
+  </div>
+  <div class="form-group">
+   <%= f.label :position %>
+   <%= f.number_field :position, class: "form-control" %>
+  </div>
+  <div class="form-group">
+   <%= f.label :permulink %>
+   <%= f.text_field :permulink, class:"form-control" %>
+  </div>
+  <div class="form-group">
+   <%= f.label :subject_id %>
+   <%= f.select :subject_id, options_for_select(Subject.all.map{ |e| [e.name, e.id] }), class: "form-control" %>
+  </div>
+  <div class="form-group form-check">
+   <%= f.check_box :visible, class: "form-check-input" %>
+   <%= f.label :visible, class: "form-check-label"  %>
+  </div>
+    <%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SUBJECTS LAYOUT</title>
+    <title>PUBLIC LAYOUT</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -27,9 +27,6 @@
             <li class="nav-item active">
               <a class="nav-link" href="/pages">Pages</a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="/pages">Sections</a>
-            </li>
           </ul>
         </div>
       </div>
@@ -38,8 +35,6 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= yield %>
-      <%= link_to("Logout" , destroy_admin_user_session_path, method: :delete) %>
-
     </div>
   </body>
 </html>

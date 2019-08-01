@@ -10,40 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_24_105255) do
+ActiveRecord::Schema.define(version: 2019_08_01_085824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "admin_users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admin_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
   create_table "pages", force: :cascade do |t|
     t.string "name"
-    t.text "position"
     t.string "permulink"
-    t.string "visible"
     t.bigint "subject_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "position"
+    t.boolean "visible"
     t.index ["subject_id"], name: "index_pages_on_subject_id"
   end
 
   create_table "sections", force: :cascade do |t|
     t.string "name"
-    t.string "position"
-    t.string "visible"
     t.text "content_type"
     t.text "content"
     t.bigint "page_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "visible"
+    t.integer "position"
     t.index ["page_id"], name: "index_sections_on_page_id"
   end
 
   create_table "subjects", force: :cascade do |t|
     t.string "name"
-    t.text "position"
-    t.string "visible"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "visible"
+    t.integer "position"
   end
 
 end

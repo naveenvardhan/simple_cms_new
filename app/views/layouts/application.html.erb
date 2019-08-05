@@ -28,18 +28,18 @@
               <a class="nav-link" href="/pages">Pages</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="/pages">Sections</a>
+              <a class="nav-link" href="/sections">Sections</a>
             </li>
           </ul>
         </div>
+        <a class="navbar-brand"><%= link_to("Logout" , destroy_admin_user_session_path, method: :delete, class: "white") %>
+       </a>
       </div>
     </nav>
     <div class="container">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= yield %>
-      <%= link_to("Logout" , destroy_admin_user_session_path, method: :delete) %>
-
     </div>
   </body>
 </html>

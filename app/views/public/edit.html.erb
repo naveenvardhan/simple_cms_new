@@ -10,21 +10,24 @@
  </div>
 </nav>
 <div class="container">
-  <h4><%= @sub.name %></h4>
-  <div class="col-lg-5">
+  <h4><%= @page.name %></h4>
+  <div class="col-lg-8">
     <div class="card">
       <div class="card-header d-flex">
-        Pages
+        Sections
       </div>
       <table  class="table">
         <tbody>
-          <% @sub.pages.each do |page| %>
+          <% @page.sections.each do |section| %>
             <tr>
-              <td><%= link_to page.name, edit_public_path(page)  %></td>
+              <td>
+                <strong><%= section.name %></strong>
+                <p><%= section.content %></p>
+              </td>
             </tr>
           <% end %>
         </tbody>
       </table>
     </div>
-</div>
+  </div>
 </div>

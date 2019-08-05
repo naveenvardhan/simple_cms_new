@@ -2,10 +2,17 @@ class PublicController < ApplicationController
   skip_before_action :authenticate_admin_user!
   layout "public"
   def index
-    @subjects = Subject.all
+    @subject = Subject.all
   end
 
   def show
-    @sub= Subject.find(params[:id])
+    @subject = Subject.all
+    @sub = Subject.find(params[:id])
   end
+
+  def edit
+    @subject = Subject.all
+    @page = Page.find(params[:id])
+  end
+
 end
